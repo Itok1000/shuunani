@@ -25,6 +25,8 @@ Rails.application.configure do
     config.action_controller.perform_caching = false
   end
 
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
+
   # Change to :null_store to avoid any caching.
   config.cache_store = :memory_store
 
