@@ -1,17 +1,143 @@
 <%= form_with url: posts_path, method: :post, id: "diagnosis-form" do |f| %>
   
   <!-- 第1問 -->
-  <div class="question-step" id="step-1">
+  <div class="question-step" id="step-1" data-step="1" style="display: block;">
     <h3>Q1. トイレの後や帰宅後、手を洗わないことがよくある</h3>
-    <% [["当てはまる", 5], ["どちらかといえば…", 4], ["普通", 3], ["あまり…", 2], ["全く…", 1]].each do |label, value| %>
+    <% [["当てはまる", 5], ["どちらかと言えば当てはまる", 4], ["どちらともいえない", 3], ["どちらかといえば当てはまらない", 2], ["当てはまらない", 1]].each do |label, value| %>
       <label>
         <%= f.radio_button "answers[q1]", value, class: "answer-option" %> <%= label %>
       </label>
     <% end %>
+
+    <div style="margin-top: 1rem;">
+      <button type="button" class="prev-btn" disabled style="margin-right: 0.5rem;">戻る</button>
+      <button type="button" class="next-btn">次へ</button>
+    </div>
   </div>
 
-  <!-- 第2問〜第10問も同様に設置（初期状態は CSS で display: none ） -->
+  <div class="question-step" id="step-2" data-step="2" style="display: none;">
+    <h3>Q2. お風呂に入ったり、歯を磨いたりするのが面倒で何日もサボることがある</h3>
+    <% [["当てはまる", 5], ["どちらかと言えば当てはまる", 4], ["どちらともいえない", 3], ["どちらかといえば当てはまらない", 2], ["当てはまらない", 1]].each do |label, value| %>
+      <label>
+        <%= f.radio_button "answers[q2]", value, class: "answer-option" %> <%= label %>
+      </label>
+    <% end %>
 
-  <button type="button" id="next-btn" style="display:none;">次の質問へ</button>
-  <%= f.submit "診断結果を見る", id: "submit-btn", style: "display:none;" %>
+    <div style="margin-top: 1rem;">
+      <button type="button" class="prev-btn" style="margin-right: 0.5rem;">戻る</button>
+      <button type="button" class="next-btn">次へ</button>
+    </div>
+  </div>
+
+  <div class="question-step" id="step-3" data-step="3" style="display: none;">
+    <h3>Q3. トイレを流し忘れたり、お風呂場で用を足した経験がある</h3>
+    <% [["当てはまる", 5], ["どちらかと言えば当てはまる", 4], ["どちらともいえない", 3], ["どちらかといえば当てはまらない", 2], ["当てはまらない", 1]].each do |label, value| %>
+      <label>
+        <%= f.radio_button "answers[q3]", value, class: "answer-option" %> <%= label %>
+      </label>
+    <% end %>
+
+    <div style="margin-top: 1rem;">
+      <button type="button" class="prev-btn" style="margin-right: 0.5rem;">戻る</button>
+      <button type="button" class="next-btn">次へ</button>
+    </div>
+  </div>
+
+  <div class="question-step" id="step-4" data-step="4" style="display: none;">
+    <h3>Q4. 自分はプライドが高い方だが、他人からの指摘にすぐキレたり激しく落ち込んだりする</h3>
+    <% [["当てはまる", 5], ["どちらかと言えば当てはまる", 4], ["どちらともいえない", 3], ["どちらかといえば当てはまらない", 2], ["当てはまらない", 1]].each do |label, value| %>
+      <label>
+        <%= f.radio_button "answers[q4]", value, class: "answer-option" %> <%= label %>
+      </label>
+    <% end %>
+
+    <div style="margin-top: 1rem;">
+      <button type="button" class="prev-btn" style="margin-right: 0.5rem;">戻る</button>
+      <button type="button" class="next-btn">次へ</button>
+    </div>
+  </div>
+
+  <div class="question-step" id="step-5" data-step="5" style="display: none;">
+    <h3>Q5. 他人と接するのが苦手で、集中力が続かず、言われたことをすぐ忘れてしまう</h3>
+    <% [["当てはまる", 5], ["どちらかと言えば当てはまる", 4], ["どちらともいえない", 3], ["どちらかといえば当てはまらない", 2], ["当てはまらない", 1]].each do |label, value| %>
+      <label>
+        <%= f.radio_button "answers[q5]", value, class: "answer-option" %> <%= label %>
+      </label>
+    <% end %>
+
+    <div style="margin-top: 1rem;">
+      <button type="button" class="prev-btn" style="margin-right: 0.5rem;">戻る</button>
+      <button type="button" class="next-btn">次へ</button>
+    </div>
+  </div>
+
+  <div class="question-step" id="step-6" data-step="6" style="display: none;">
+    <h3>Q6. 女性に対して強い執着や苦手意識、あるいはこじれた感情を抱いている</h3>
+    <% [["当てはまる", 5], ["どちらかと言えば当てはまる", 4], ["どちらともいえない", 3], ["どちらかといえば当てはまらない", 2], ["当てはまらない", 1]].each do |label, value| %>
+      <label>
+        <%= f.radio_button "answers[q6]", value, class: "answer-option" %> <%= label %>
+      </label>
+    <% end %>
+
+    <div style="margin-top: 1rem;">
+      <button type="button" class="prev-btn" style="margin-right: 0.5rem;">戻る</button>
+      <button type="button" class="next-btn">次へ</button>
+    </div>
+  </div>
+  
+  <div class="question-step" id="step-7" data-step="7" style="display: none;">
+    <h3>Q7. 休学や休職など、人生の途中で長期の立ち止まりを経験したことがある</h3>
+    <% [["当てはまる", 5], ["どちらかと言えば当てはまる", 4], ["どちらともいえない", 3], ["どちらかといえば当てはまらない", 2], ["当てはまらない", 1]].each do |label, value| %>
+      <label>
+        <%= f.radio_button "answers[q7]", value, class: "answer-option" %> <%= label %>
+      </label>
+    <% end %>
+
+    <div style="margin-top: 1rem;">
+      <button type="button" class="prev-btn" style="margin-right: 0.5rem;">戻る</button>
+      <button type="button" class="next-btn">次へ</button>
+    </div>
+  </div>
+
+  <div class="question-step" id="step-8" data-step="8" style="display: none;">
+    <h3>Q8. 家庭環境や過去の生い立ちにおいて、不遇な扱いを受けたトラウマがある</h3>
+    <% [["当てはまる", 5], ["どちらかと言えば当てはまる", 4], ["どちらともいえない", 3], ["どちらかといえば当てはまらない", 2], ["当てはまらない", 1]].each do |label, value| %>
+      <label>
+        <%= f.radio_button "answers[q8]", value, class: "answer-option" %> <%= label %>
+      </label>
+    <% end %>
+
+    <div style="margin-top: 1rem;">
+      <button type="button" class="prev-btn" style="margin-right: 0.5rem;">戻る</button>
+      <button type="button" class="next-btn">次へ</button>
+    </div>
+  </div>
+
+  <div class="question-step" id="step-9" data-step="9" style="display: none;">
+    <h3>Q9. 狭い空間（トイレなど）に引きこもると落ち着く感覚がある</h3>
+    <% [["当てはまる", 5], ["どちらかと言えば当てはまる", 4], ["どちらともいえない", 3], ["どちらかといえば当てはまらない", 2], ["当てはまらない", 1]].each do |label, value| %>
+      <label>
+        <%= f.radio_button "answers[q9]", value, class: "answer-option" %> <%= label %>
+      </label>
+    <% end %>
+
+    <div style="margin-top: 1rem;">
+      <button type="button" class="prev-btn" style="margin-right: 0.5rem;">戻る</button>
+      <button type="button" class="next-btn">次へ</button>
+    </div>
+  </div>
+
+  <div class="question-step" id="step-10" data-step="10" style="display: none;">
+    <h3>Q10. 働くなら絶対にフルリモート（在宅）以外ありえないと強くこだわっている</h3>
+    <% [["当てはまる", 5], ["どちらかと言えば当てはまる", 4], ["どちらともいえない", 3], ["どちらかといえば当てはまらない", 2], ["当てはまらない", 1]].each do |label, value| %>
+      <label>
+        <%= f.radio_button "answers[q10]", value, class: "answer-option" %> <%= label %>
+      </label>
+    <% end %>
+
+    <div style="margin-top: 1rem;">
+      <button type="button" class="prev-btn" style="margin-right: 0.5rem;">戻る</button>
+      <button type="submit" class="result-btn">結果を見る</button>
+    </div>
+  </div>
 <% end %>
