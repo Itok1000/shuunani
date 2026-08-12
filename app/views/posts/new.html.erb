@@ -1,5 +1,6 @@
 <%= form_with url: posts_path, method: :post, id: "diagnosis-form" do |f| %>
-  
+  <div id="progress-indicator" style="margin-bottom: 1rem; font-weight: 700;">進捗: 0 / 10</div>
+
   <!-- 第1問 -->
   <div class="question-step" id="step-1" data-step="1" style="display: block;">
     <h3>Q1. トイレの後や帰宅後、手を洗わないことがよくある</h3>

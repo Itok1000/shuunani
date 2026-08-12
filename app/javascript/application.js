@@ -6,9 +6,19 @@ const initDiagnosisFlow = () => {
   const form = document.getElementById("diagnosis-form")
   if (!form) return
 
+  const progressIndicator = document.getElementById("progress-indicator")
   const steps = Array.from(form.querySelectorAll(".question-step"))
   const totalSteps = steps.length
   let currentStep = 1
+
+  const getAnsweredCount = () => {
+    return form.querySelectorAll('input[type="radio"]:checked').length
+  }
+
+  const updateProgress = () => {
+    if (!progressIndicator) return
+    progressIndicator.textContent = `進捗: ${getAnsweredCount()} / ${totalSteps}`
+  }
 
   const showStep = (stepNumber) => {
     steps.forEach((step) => {
@@ -17,6 +27,21 @@ const initDiagnosisFlow = () => {
     })
 
     currentStep = stepNumber
+
+    const currentStepElement = form.querySelector(`.question-step[data-step="${currentStep}"]`)
+    const currentNextButton = currentStepElement?.querySelector(".next-btn")
+    const currentResultButton = currentStepElement?.querySelector(".result-btn")
+    const currentStepSelected = currentStepElement?.querySelector('input[type="radio"]:checked')
+
+    if (currentNextButton) {
+      currentNextButton.disabled = !currentStepSelected
+    }
+
+    if (currentResultButton) {
+      currentResultButton.disabled = !currentStepSelected
+    }
+
+    updateProgress()
   }
 
   steps.forEach((step) => {
@@ -32,12 +57,18 @@ const initDiagnosisFlow = () => {
     })
 
     nextButton?.addEventListener("click", () => {
+      const selected = step.querySelector('input[type="radio"]:checked')
+      if (!selected) return
+
       if (currentStep < totalSteps) {
         showStep(currentStep + 1)
       }
     })
 
     resultButton?.addEventListener("click", () => {
+      const selected = step.querySelector('input[type="radio"]:checked')
+      if (!selected) return
+
       if (typeof form.requestSubmit === "function") {
         form.requestSubmit()
       } else {
@@ -47,6 +78,20 @@ const initDiagnosisFlow = () => {
 
     if (prevButton && stepValue === 1) {
       prevButton.disabled = true
+    }
+  })
+
+  form.addEventListener("change", (event) => {
+    if (event.target.matches('input[type="radio"]')) {
+      const currentStepElement = form.querySelector(`.question-step[data-step="${currentStep}"]`)
+      const currentNextButton = currentStepElement?.querySelector(".next-btn")
+      const currentResultButton = currentStepElement?.querySelector(".result-btn")
+      const hasSelection = !!currentStepElement?.querySelector('input[type="radio"]:checked')
+
+      if (currentNextButton) currentNextButton.disabled = !hasSelection
+      if (currentResultButton) currentResultButton.disabled = !hasSelection
+
+      updateProgress()
     }
   })
 
