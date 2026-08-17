@@ -19,3 +19,12 @@
   <h2>診断結果：あなたは「喜多ちゃん」です！</h2>
   <p>圧倒的陽キャ！ 衛生観念バッチリ、メンタル安定、対人関係良好です。</p>
 <% end %>
+
+<a href="https://twitter.com/share"
+  class="twitter-share-button"
+  data-url="<%= request.original_url %>"
+  data-text="あなたは <%= params[:id] %> です！ "
+  data-lang="ja"
+  data-show-count="false">
+  Xでシェア
+</a>
