@@ -19,9 +19,25 @@ class PostsController < ApplicationController
 
   def show
     @result_type = params[:id] # 例: "shuu_nani", "kita_chan" など
+
+    set_meta_tags description: "わたしは「 #{@result_type} 」です",
+                  og: {
+                    title: '診断結果',
+                    description: "わたしは「 #{@result_type} 」です",
+                    image: ogp_image_url(@result_type), # 動的に生成されたOGP画像のURL
+                    url: request.original_url
+                  },
+                  twitter: {
+                    card: 'summary_large_image',
+                    image: ogp_image_url(@result_type)
+                  }
   end
 
   private
+
+  def ogp_image_url(result_type)
+    images_ogp_url(text: result_type, host: request.host_with_port)
+  end
 
   def calculate_result(total, hygiene)
     if total >= 40
