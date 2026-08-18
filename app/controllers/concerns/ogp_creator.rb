@@ -28,7 +28,7 @@ class OgpCreator
       config.pointsize '28'
       config.fill '#E0E0E0' # 少し薄い文字色
       # 少し下に配置 (x=0, y=+60)
-      # ※長すぎる文字列は改行を入れておくと綺麗に収まります
+      # ※長すぎる文字列は改行を入れておくと綺麗に収まる
       config.draw "text 0,60 '#{escape_text(insert_newlines(text, 20))}'"
     end
 
