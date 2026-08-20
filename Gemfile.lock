@@ -403,6 +403,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  dotenv
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
