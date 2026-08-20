@@ -28,7 +28,6 @@ gem "mini_magick"
 # 開発環境やテスト環境で環境変数を管理するためのライブラリ
 # これを使うことで、環境ごとに異なる設定を簡単に管理できる
 gem "dotenv", groups: [ :development, :test ]
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
