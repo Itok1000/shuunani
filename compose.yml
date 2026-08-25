@@ -16,6 +16,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  selenium:
+    image: selenium/standalone-chrome:latest
+    shm_size: 2gb
   web:
     build:
       context: .
@@ -39,6 +42,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      selenium:
+        condition: service_started
 volumes:
   bundle_data:
   postgresql_data:
