@@ -1,5 +1,6 @@
-<%= form_with url: posts_path, method: :post, id: "diagnosis-form" do |f| %>
-  <div id="progress-indicator" style="margin-bottom: 1rem; font-weight: 700;">進捗: 0 / 10</div>
+<main class="relative isolate min-h-screen overflow-hidden bg-[#0a0a0c] text-[#e0e0e0]">
+<%= form_with url: posts_path, method: :post, id: "diagnosis-form", class: "mx-auto mt-8 w-full max-w-3xl border border-[#00ff66]/50 bg-[#101014]/90 p-5 shadow-[0_0_30px_rgba(0,255,102,0.12)] sm:mt-12 sm:p-8 [&_.question-step]:border-t [&_.question-step]:border-[#00ff66]/25 [&_.question-step]:pt-6 [&_.question-step_h3]:mb-6 [&_.question-step_h3]:text-lg [&_.question-step_h3]:font-semibold [&_.question-step_h3]:leading-8 [&_.question-step_h3]:text-white [&_.question-step_label]:my-2 [&_.question-step_label]:flex [&_.question-step_label]:cursor-pointer [&_.question-step_label]:items-center [&_.question-step_label]:gap-3 [&_.question-step_label]:border [&_.question-step_label]:border-white/10 [&_.question-step_label]:bg-[#0a0a0c] [&_.question-step_label]:px-4 [&_.question-step_label]:py-3 [&_.question-step_label]:text-sm [&_.question-step_label]:transition [&_.question-step_label:hover]:border-[#00ff66]/70 [&_.question-step_label:hover]:bg-[#00ff66]/5 [&_.answer-option]:accent-[#00ff66] [&_.question-step_button]:mt-4 [&_.question-step_button]:border [&_.question-step_button]:border-[#00ff66]/60 [&_.question-step_button]:bg-[#00ff66]/5 [&_.question-step_button]:px-5 [&_.question-step_button]:py-2.5 [&_.question-step_button]:font-semibold [&_.question-step_button]:text-white [&_.question-step_button]:transition [&_.question-step_button:hover]:bg-[#00ff66]/15 [&_.question-step_button:disabled]:cursor-not-allowed [&_.question-step_button:disabled]:opacity-40 [&_.question-step_.result-btn]:border-[#ff007f] [&_.question-step_.result-btn]:bg-[#ff007f]/10 [&_.question-step_.result-btn:hover]:bg-[#ff007f]/20" do |f| %>
+  <div id="progress-indicator" class="mb-4 border-b border-[#00ff66]/30 pb-4 font-mono tracking-widest text-[#00ff66]" style="margin-bottom: 1rem; font-weight: 700;">進捗: 0 / 10</div>
 
   <!-- 第1問 -->
   <div class="question-step" id="step-1" data-step="1" style="display: block;">
@@ -142,3 +143,4 @@
     </div>
   </div>
 <% end %>
+</main>
