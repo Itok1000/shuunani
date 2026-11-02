@@ -1,8 +1,21 @@
-<div class="min-h-screen bg-slate-50">
-  <div class="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 py-12 text-center">
-    <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Youは就NANI?</h1>
-    <div class="mt-10 flex justify-center">
-      <%= link_to '診断スタート', new_post_path, class: 'rounded-full bg-sky-600 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-sky-600/20 transition hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2' %>
-    </div>
+<main class="relative isolate min-h-screen overflow-hidden bg-[#0a0a0c] text-[#e0e0e0]">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(rgba(0,255,102,0.055)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,102,0.055)_1px,transparent_1px)] bg-[size:32px_32px]"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(0,255,102,0.12),transparent_55%),radial-gradient(ellipse_at_100%_70%,rgba(255,0,127,0.08),transparent_38%)]"></div>
+
+  <div class="mx-auto flex max-w-6xl flex-col items-center px-5 py-12 text-center sm:px-8 sm:py-16">
+    <p class="mb-5 font-mono text-xs tracking-[0.35em] text-[#00ff66] sm:text-sm">
+      &gt; SHUSHOKU DIAGNOSTIC SYSTEM
+    </p>
+    <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+      Youは就NANI?
+    </h1>
+    <p class="mt-4 text-sm leading-7 text-[#b8b8bf] sm:text-base">
+      就職のモヤモヤを、ゲーム感覚で診断。
+    </p>
+
+    <%= link_to new_post_path, class: "mt-8 inline-flex items-center gap-3 border border-[#ff007f] bg-[#ff007f]/10 px-8 py-4 font-semibold tracking-widest text-white shadow-[0_0_22px_rgba(255,0,127,0.2)] transition hover:bg-[#ff007f]/20 hover:shadow-[0_0_30px_rgba(255,0,127,0.4)] focus:outline-none focus:ring-2 focus:ring-[#00ff66] focus:ring-offset-2 focus:ring-offset-[#0a0a0c]" do %>
+      <span>診断スタート</span>
+      <span aria-hidden="true" class="font-mono text-[#00ff66]">&gt;</span>
+    <% end %>
   </div>
-</div>
+</main>
