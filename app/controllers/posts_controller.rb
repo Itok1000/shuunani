@@ -22,13 +22,13 @@ class PostsController < ApplicationController
 
     set_meta_tags description: "わたしは「 #{@result_type} 」です",
                   og: {
-                    title: '診断結果',
+                    title: "診断結果",
                     description: "わたしは「 #{@result_type} 」です",
                     image: ogp_image_url(@result_type), # 動的に生成されたOGP画像のURL
                     url: request.original_url
                   },
                   twitter: {
-                    card: 'summary_large_image',
+                    card: "summary_large_image",
                     image: ogp_image_url(@result_type)
                   }
   end

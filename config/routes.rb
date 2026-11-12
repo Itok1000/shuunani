@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "static_pages#top"
-  resources :posts, only: %i[new create show index]
-  get 'images/ogp.png', to: 'images#ogp', as: 'images_ogp'
+  resources :posts, only: %i[ new create show index ]
+  get "images/ogp.png", to: "images#ogp", as: "images_ogp"
 end

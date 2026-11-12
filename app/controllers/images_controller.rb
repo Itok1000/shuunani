@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
     image_binary = OgpCreator.build(title, text).to_blob
 
     # 画像としてレスポンスを返す
-    send_data image_binary, type: 'image/png', disposition: 'inline'
+    send_data image_binary, type: "image/png", disposition: "inline"
   end
 
   private
@@ -18,18 +18,18 @@ class ImagesController < ApplicationController
   def fetch_ogp_text(result_type)
     case result_type
     when "nioi_nani"
-      ["わたしは「臭なに」です", "就なに要素に加え圧倒的な不潔スペック。今すぐお風呂へ！"]
+      [ "わたしは「臭なに」です", "就なに要素に加え圧倒的な不潔スペック。今すぐお風呂へ！" ]
     when "shuu_nani"
-      ["わたしは「就なに」です", "高すぎるプライドと情緒不安定の見事なフルスペック"]
+      [ "わたしは「就なに」です", "高すぎるプライドと情緒不安定の見事なフルスペック" ]
     when "bocchi"
-      ["「ぼっちちゃん」の可能性", "対人は苦手だけど不潔でも攻撃的でもありません"]
+      [ "「ぼっちちゃん」の可能性", "対人は苦手だけど不潔でも攻撃的でもありません" ]
     when "kita_chan"
-      ["わたしは「喜多ちゃん」です！", "圧倒的陽キャ！衛生面もメンタルも良好です"]
+      [ "わたしは「喜多ちゃん」です！", "圧倒的陽キャ！衛生面もメンタルも良好です" ]
     when "normal"
-      ["特に異常は有りませんでした", "至って標準的な人間です。安心して社会生活を"]
+      [ "特に異常は有りませんでした", "至って標準的な人間です。安心して社会生活を" ]
     else
       # パラメータに直接「おはよう」などが来た場合のデフォルト表示
-      ["就なに診断結果", result_type.presence || "わたしは…"]
+      [ "就なに診断結果", result_type.presence || "わたしは…" ]
     end
   end
 end
