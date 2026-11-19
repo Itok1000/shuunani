@@ -19,5 +19,10 @@
       <span>診断スタート</span>
       <span aria-hidden="true" class="font-mono text-[#00ff66]">&gt;</span>
     <% end %>
+
+    <nav aria-label="関連情報" class="mt-6 flex flex-wrap justify-center gap-3 text-sm">
+      <%= link_to "利用規約", terms_path, class: "border border-[#00ff66]/40 px-4 py-2 text-[#b8b8bf] transition hover:border-[#00ff66] hover:text-[#00ff66] focus:outline-none focus:ring-2 focus:ring-[#00ff66]" %>
+      <%= link_to "プライバシーポリシー", privacy_path, class: "border border-[#00ff66]/40 px-4 py-2 text-[#b8b8bf] transition hover:border-[#00ff66] hover:text-[#00ff66] focus:outline-none focus:ring-2 focus:ring-[#00ff66]" %>
+    </nav>
   </div>
 </main>
