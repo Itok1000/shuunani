@@ -17,7 +17,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "main[class*='bg-[#0a0a0c]']"
     assert_select "h1", text: "利用規約"
-    assert_select "p", text: /規約/
+    assert_select "p", text: /本規約/
 
     get privacy_url
 
